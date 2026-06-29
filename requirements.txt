@@ -1,0 +1,6 @@
+# ReconForge Python dependencies
+# Core dependencies used across modules
+
+pyyaml>=6.0        # Parse config.yaml
+requests>=2.28.0   # NVD API queries in cve_mapper.py
+colorama>=0.4.6    # Cross-platform colored console output (Windows-friendly)

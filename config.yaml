@@ -1,0 +1,51 @@
+# ============================================================
+# ReconForge configuration file
+# ------------------------------------------------------------
+# All values here are loaded at startup by main.py and passed
+# down to each module. Anything left blank falls back to a
+# sensible default defined in the code.
+# ============================================================
+
+# --- External tool paths -------------------------------------
+# If a tool is in your system PATH, you can just leave the bare
+# command name. Otherwise, provide an absolute path to the binary.
+tools:
+  subfinder: "subfinder"
+  assetfinder: "assetfinder"
+  httpx: "httpx"
+  nmap: "nmap"
+  ffuf: "ffuf"
+  nuclei: "nuclei"
+
+# --- Timeouts (in seconds) -----------------------------------
+# Each subprocess call is wrapped with a timeout so a hung tool
+# never blocks the whole pipeline.
+timeouts:
+  subfinder: 300
+  assetfinder: 300
+  httpx: 300
+  nmap: 600
+  ffuf: 300
+  nuclei: 900
+
+# --- Wordlist for directory brute-forcing (dir_enum.py) ------
+# Point this to a SecLists wordlist if you have one installed.
+# If the file is missing, dir_enum falls back to a small built-in list.
+wordlist: "/usr/share/seclists/Discovery/Web-Content/common.txt"
+
+# --- Nmap settings -------------------------------------------
+nmap:
+  top_ports: 100      # passed to --top-ports
+
+# --- Nuclei settings -----------------------------------------
+nuclei:
+  templates: ""       # optional: path to custom nuclei templates dir
+
+# --- NVD API (cve_mapper.py) ---------------------------------
+# Optional API key for higher rate limits. Without a key NVD
+# allows ~5 requests / 30 seconds, so we add delays automatically.
+nvd:
+  api_key: ""
+
+# --- Output directory ----------------------------------------
+output_dir: "output"
